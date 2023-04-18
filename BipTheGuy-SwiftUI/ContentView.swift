@@ -7,11 +7,13 @@
 
 import SwiftUI
 import AVFAudio
+import PhotosUI
 
 struct ContentView: View {
     
     @State private var audioPlayer: AVAudioPlayer!
     @State private var imageEffect = true
+    @State private var photo: PhotosPickerItem?
     
     var body: some View {
         VStack {
@@ -31,12 +33,10 @@ struct ContentView: View {
             
             Spacer()
             
-            Button {
-                //
-            } label: {
+            PhotosPicker(selection: $photo) {
                 Label("Photo Library", systemImage: "photo.tv")
             }
-
+            
         }
         .padding()
     }
